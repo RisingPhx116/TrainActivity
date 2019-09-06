@@ -102,5 +102,5 @@ console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
     );
   
     // Append the new row to the table
-    $("#-table > tbody").append(newRow);
+    $("#train-table > tbody").append(newRow);
   });
