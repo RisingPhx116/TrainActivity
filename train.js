@@ -1,13 +1,14 @@
-var config = {
-    apiKey: "AIzaSyAth24lFEJWKcWdc-7neMsQETqUqoHwWos",
-    authDomain: "trainactivity-13a90.firebaseapp.com",
-    databaseURL: "https://trainactivity-13a90.firebaseio.com",
-    projectId: "trainactivity-13a90",
-    storageBucket: "",
-    messagingSenderId: "6351925896",
-    appId: "1:6351925896:web:c41b85c905e9df50cae53d"
+var firebaseConfig = {
+  apiKey: "AIzaSyDdP4Wgtr2YDBZw57C5LUMLm9CoIs4GPDs",
+  authDomain: "trainsched-a7013.firebaseapp.com",
+  databaseURL: "https://trainsched-a7013.firebaseio.com",
+  projectId: "trainsched-a7013",
+  storageBucket: "",
+  messagingSenderId: "842313539802",
+  appId: "1:842313539802:web:de0f22dbc694c65dfe85e3"
 };
-    firebase.initializeApp(config);
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
   
   var database = firebase.database();
   
@@ -26,7 +27,7 @@ var config = {
       name: name,
       dest: dest,
       start: start,
-      frequency: freq
+      freq: freq
     };
   
     // Uploads train data to the database
@@ -55,7 +56,7 @@ var config = {
     var name = childSnapshot.val().name;
     var dest = childSnapshot.val().dest;
     var start = childSnapshot.val().start;
-    var freq = childSnapshot.val().rate;
+    var freq = childSnapshot.val().freq;
   
     //  Info
     console.log(name);
@@ -80,11 +81,11 @@ var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
 console.log("DIFFERENCE IN TIME: " + diffTime);
 
 // Time apart (remainder)
-var tRemainder = diffTime % tFrequency;
+var tRemainder = diffTime % freq;
 console.log(tRemainder);
 
 // Minute Until Train
-var tMinutesTillTrain = tFrequency - tRemainder;
+var tMinutesTillTrain = freq - tRemainder;
 console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
 
 // Next Train
